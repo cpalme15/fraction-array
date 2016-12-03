@@ -1,0 +1,45 @@
+public class Test1 {
+
+	public static void main(String[] args) {
+		Fraction f=new Fraction(6,7);
+		Fraction g=new Fraction(2,4);
+		Fraction h=new Fraction(3,4);
+		Fraction j=new Fraction(3,18);
+		Fraction k=new Fraction(1,8);
+		Fraction l=new Fraction(10,20);
+		Fraction m=new Fraction(2,6);
+		Fraction[] F1=new Fraction[7];
+		F1[0]=f;
+		F1[1]=g;
+		F1[2]=h;
+		F1[3]=j;
+		F1[4]=k;
+		F1[5]=l;
+		F1[6]=m;
+		F1=sort(F1);
+		displayarray(F1);
+	}
+
+	public static Fraction[] sort(Fraction [] a)
+	{
+		for(int i=0;i<(a.length-1);i++)
+		{
+			
+			if(a[i+1].isGreater(a[i])==true)
+				a[i]=a[i+1];
+			
+			else
+				a[i]=a[i];
+			
+		}
+		return a;
+	}
+	public static void displayarray(Fraction[]v)
+	{
+		for(int i=0;i<v.length;i++)
+		{
+		System.out.println(v[i]);
+		}
+	}
+
+}
