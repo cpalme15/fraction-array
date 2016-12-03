@@ -1,0 +1,93 @@
+public class Fraction {
+private int num;
+private int demo;
+
+
+
+		public Fraction()		//default
+		{ num=1;
+		demo=1;
+	
+		}
+		public Fraction(int n, int d)		//overload
+		{
+			setnum(n);
+			setdemo(d);
+	
+		}
+		public void setnum(int n)
+		{
+			num=n;
+		}
+		public int getnum()
+		{
+			return num;
+		}
+		public void setdemo(int d){
+			demo=d;
+		}
+		public int getdemo()
+		{
+			return demo;
+		}
+		public boolean isEqual(Fraction f)
+		{
+			return num==f.num && demo==f.demo;
+		}
+@Override
+	public boolean equals(Object temp)// override
+		{ if (temp == null)
+			return false;
+				if (temp instanceof Fraction)
+				{
+						if (this.num==((Fraction)temp).num
+						&& this.demo==((Fraction)temp).demo)
+							return true;
+	
+				}
+			return false;
+
+		}
+@Override
+	public String toString()
+			{
+				return num+"/"+demo;
+			}
+	public void display() 
+	{
+		System.out.println(num + " / "+demo);
+	
+	}
+	private int gcd(int n,int d){
+		int z=0;
+		while (n!=0&&d!=0)
+		{
+				z=n;
+				n=d%n;
+				d=z;
+		}
+		return n+d;
+	}
+
+	public void reduce(){
+		int g=0;
+		g=gcd(num,demo);
+		num/=g;
+		demo/=g;
+	
+	}
+	public float convert()
+	{
+		return(float)this.num/this.demo;
+		
+	}
+	
+	public boolean isGreater(Fraction f)
+	{
+		if(this.convert()>f.convert())
+			return true;
+		else
+			return false;
+	}
+	}
+
