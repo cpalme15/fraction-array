@@ -1,3 +1,4 @@
+package dgf;
 public class Fraction {
 private int num;
 private int demo;
@@ -89,5 +90,6 @@ private int demo;
 		else
 			return false;
 	}
+	
 	}
 
