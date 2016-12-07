@@ -1,7 +1,8 @@
-package dgf;
+
 public class Fraction {
 private int num;
 private int demo;
+private double ratioValue;
 
 
 
@@ -35,6 +36,15 @@ private int demo;
 		{
 			return num==f.num && demo==f.demo;
 		}
+		
+
+		public Fraction add(Fraction addit) {
+		      Fraction sum = new Fraction();
+		      int newdemo = demo * addit.demo;
+		      sum.demo = newdemo;
+		      sum.num = num * addit.demo + addit.num * demo;
+		      return sum;
+		   }
 @Override
 	public boolean equals(Object temp)// override
 		{ if (temp == null)
@@ -50,16 +60,16 @@ private int demo;
 
 		}
 @Override
-	public String toString()
-			{
-				return num+"/"+demo;
-			}
+public  String toString()
+		{
+			return num+"/"+demo;
+		}
 	public void display() 
 	{
 		System.out.println(num + " / "+demo);
 	
 	}
-	private int gcd(int n,int d){
+	private static  int gcd(int n,int d){
 		int z=0;
 		while (n!=0&&d!=0)
 		{
@@ -70,13 +80,10 @@ private int demo;
 		return n+d;
 	}
 
-	public void reduce(){
-		int g=0;
-		g=gcd(num,demo);
-		num/=g;
-		demo/=g;
-	
-	}
+	public static String reduce(int num,int demo) {
+        int gcd = gcd(num, demo);
+        return (num / gcd) + "/" + (demo / gcd);
+    }
 	public float convert()
 	{
 		return(float)this.num/this.demo;
@@ -90,6 +97,5 @@ private int demo;
 		else
 			return false;
 	}
-	
-	}
 
+	}
