@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 
@@ -12,53 +13,36 @@ public class Test1 {
 		Fraction k=new Fraction(1,8);
 		Fraction l=new Fraction(10,20);
 		Fraction m=new Fraction(2,6);
-		Fraction[] F1=new Fraction[index];
+		Fraction[] F1=new Fraction[]{f,g,h,j,k,l,m};
 		
-		F1[0]=f;
-		F1[1]=g;
-		F1[2]=h;
-		F1[3]=j;
-		F1[4]=k;
-		F1[5]=l;
-		F1[6]=m;
+		
 		
 		sort(F1);
 		
 	
 		
-		for(Fraction element:copyOf(F1,F1.length-2))
-		{
-			System.out.println(element);
-		}
-		
-		Fraction unreduced=new Fraction();
-				unreduced=((add(copyOf(F1,F1.length-2))));
-		
-		
-		
-		}
-
 	
-
-	
-
-
-
-	public static Fraction add (Fraction[] g)
-	{ 
-		Fraction total=new Fraction();
-		int x=0;
-		for(int i=0;i<g.length-1;i++)
-		{ 
-			
-			total.setdemo(g[i].getdemo() * g[i+1].getdemo());
-			total.setnum((g[i].getnum() * g[i+1].getdemo() + (g[i+1].getnum() * g[i].getdemo())));
-			
+				Fraction[] F2 = (copyOf(F1,F1.length-2));
+		
+				
+					for(Fraction element:F2)
+					{
+						System.out.println(element);
+					}
+					Fraction result =new Fraction();
+					
+			    	 Fraction n=F2[0].add(F2[1]);
+			    	 Fraction z=F2[2].add(F2[3]);
+			    	 n=n.add(F2[4]);
+			    	 n=n.add(z);
+			    	 System.out.println(n);
+			    	 
+			    	 
+			     
+		
 		}
-	return total;
-	   }
-	      
-	
+
+
 	public static Fraction [] move(Fraction [] f)
 	{
 		
