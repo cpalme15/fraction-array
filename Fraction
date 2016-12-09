@@ -1,4 +1,5 @@
 
+
 public class Fraction {
 private int num;
 private int demo;
@@ -38,12 +39,25 @@ private double ratioValue;
 		}
 		
 
-		public Fraction add(Fraction addit) {
+		  public Fraction add(Fraction b)
+		   {
+		      int common = lcd(demo, b.demo);
 		      Fraction sum = new Fraction();
-		      int newdemo = demo * addit.demo;
-		      sum.demo = newdemo;
-		      sum.num = num * addit.demo + addit.num * demo;
+		      Fraction A = new Fraction();
+		      Fraction B = new Fraction();
+		      A = convert1(common);
+		      B = b.convert1(common);
+		      sum.num = A.num + B.num;
+		      sum.demo = common;
+		      sum = sum.reduce();
 		      return sum;
+		   }
+		  private int lcd(int denom1, int denom2)
+		   {
+		      int factor = denom1;
+		      while ((denom1 % denom2) != 0)
+		         denom1 += factor;
+		      return denom1;
 		   }
 @Override
 	public boolean equals(Object temp)// override
@@ -80,15 +94,30 @@ public  String toString()
 		return n+d;
 	}
 
-	public static String reduce(int num,int demo) {
-        int gcd = gcd(num, demo);
-        return (num / gcd) + "/" + (demo / gcd);
-    }
+	public Fraction reduce(){
+		int g=0;
+		
+		g=gcd(num,demo);
+		int nnum=num/=g;
+		int ndemo=demo/=g;
+		Fraction n =new Fraction(nnum,ndemo);
+		return n ;
+	
+	}
 	public float convert()
 	{
 		return(float)this.num/this.demo;
 		
-	}
+	} 
+	private Fraction convert1(int common)
+	   {
+	      Fraction result = new Fraction();
+	      int factor = common / demo;
+	      result.num = num * factor;
+	      result.demo = common;
+	      return result;
+	   }
+	
 	
 	public boolean isGreater(Fraction f)
 	{
